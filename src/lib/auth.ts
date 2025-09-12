@@ -1,22 +1,36 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import CredentialsProvider from "next-auth/providers/credentials";
+import type { NextAuthOptions } from "next-auth";
 
-export async function getSession() {
-  return await getServerSession(authOptions);
-}
-
-export async function getCurrentUser() {
-  const session = await getSession();
-  return session?.user;
-}
-
-export async function requireAuth() {
-  const user = await getCurrentUser();
-  
-  if (!user) {
-    redirect("/auth/signin");
-  }
-  
-  return user;
-}
+export const authOptions: NextAuthOptions = {
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        if (credentials?.username === "admin" && credentials?.password === "admin") {
+          return { id: "1", name: "Admin User", email: "admin@example.com" };
+        }
+        return null;
+      },
+    }),
+  ],
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
+  },
+  pages: {
+    signIn: "/auth/signin",
+  },
+  callbacks: {
+    session: ({ session, token }) => {
+      if (token.sub) {
+        (session.user as any).id = token.sub;
+      }
+      return session;
+    },
+  },
+  debug: process.env.NODE_ENV === "development",
+};
