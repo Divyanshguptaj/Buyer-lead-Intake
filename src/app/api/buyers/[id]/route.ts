@@ -33,15 +33,15 @@ export async function GET(
       }
       
       // Mock history data
-      const mockHistory = [
-        {
-          id: '1',
-          buyerId: id,
-          changedById: '1',
-          changedAt: new Date().toISOString(),
-          diff: { action: 'created', data: { status: 'New' } },
-        }
-      ];
+      // const mockHistory = [
+      //   {
+      //     id: '1',
+      //     buyerId: id,
+      //     changedById: '1',
+      //     changedAt: new Date().toISOString(),
+      //     diff: { action: 'created', data: { status: 'New' } },
+      //   }
+      // ];
       
       return NextResponse.json(buyer);
     }
