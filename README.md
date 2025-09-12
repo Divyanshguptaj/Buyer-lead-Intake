@@ -75,7 +75,7 @@ CREATE DATABASE buyerleads;
 2. Run database migrations:
 
 ```bash
-npx drizzle-kit push:pg
+npx drizzle-kit push
 ```
 
 ### Installation

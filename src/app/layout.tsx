@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { NavBar } from '@/components/nav-bar';
-import { ClientErrorBoundary } from '@/components/ui/client-error-boundary';
+import { NavBar } from "@/components/nav-bar";
+import { ClientErrorBoundary } from "@/components/ui/client-error-boundary";
 import { AuthProvider } from "@/components/auth-provider";
 
 export const metadata: Metadata = {
   title: "Buyer Lead Intake",
   description: "Manage buyer leads easily",
 };
-
-
 
 export default function RootLayout({
   children,
@@ -18,18 +16,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className="antialiased font-sans bg-gray-50 min-h-screen"
-      >
+      <body className="antialiased font-sans bg-white text-gray-900 min-h-screen">
         <AuthProvider>
           <ClientErrorBoundary>
             <div className="flex flex-col min-h-screen">
-              <NavBar />
-              <main className="container mx-auto px-4 py-8 flex-grow">
+              {/* Navigation */}
+              <header className="border-b border-gray-200 shadow-sm bg-white">
+                <NavBar />
+              </header>
+
+              {/* Main content */}
+              <main className="container  flex-grow">
                 {children}
               </main>
-              <footer className="bg-slate-800 text-white py-4 text-center text-sm">
-                &copy; {new Date().getFullYear()} Buyer Lead Intake
+
+              {/* Footer */}
+              <footer className="border-t border-gray-200 bg-white text-gray-600 py-6 text-center text-sm">
+                &copy; {new Date().getFullYear()} Buyer Lead Intake. All rights reserved.
               </footer>
             </div>
           </ClientErrorBoundary>

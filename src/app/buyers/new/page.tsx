@@ -38,15 +38,13 @@ export default function NewBuyerPage() {
   
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Add New Buyer Lead</h1>
-      
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded mb-6">
           {error}
         </div>
       )}
       
-      <div className="bg-white p-6 rounded-lg shadow">
+      <div className="bg-white p-6 shadow">
         <BuyerForm 
           onSubmit={handleSubmit} 
           isSubmitting={isSubmitting} 
