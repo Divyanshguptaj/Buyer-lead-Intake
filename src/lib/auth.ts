@@ -1,7 +1,7 @@
+// src/lib/auth.ts
+
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthOptions } from "next-auth";
-import { getServerSession } from "next-auth";
-import { getSession } from "next-auth/react";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60,
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   pages: {
     signIn: "/auth/signin",
@@ -39,10 +39,3 @@ export const authOptions: NextAuthOptions = {
   },
   debug: process.env.NODE_ENV === "development",
 };
-
-export const getCurrentUser = async () => {
-  const session = await getServerSession(authOptions);
-  return session?.user;
-};
-export { getSession };
-

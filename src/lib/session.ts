@@ -1,9 +1,11 @@
+// src/lib/session.ts
+
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/auth"; // ✅ safe import, no circular refs
+import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 export async function getSession() {
-  return await getServerSession(authOptions);
+  return getServerSession(authOptions);
 }
 
 export async function getCurrentUser() {
