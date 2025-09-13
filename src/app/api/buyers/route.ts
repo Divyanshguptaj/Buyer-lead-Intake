@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { buyers, buyerHistory } from '@/db/schema';
-import { buyerSchema } from '@/db/schema';
+import { db } from '@/lib/db';
+import { buyers, buyerHistory } from '@/lib/db/schema';
+import { buyerSchema } from '@/lib/db/schema';
 import { getSession } from '@/lib/auth';
 import { rateLimit, rateLimitResponse } from '@/lib/rate-limit';
 import { env } from '@/lib/env';

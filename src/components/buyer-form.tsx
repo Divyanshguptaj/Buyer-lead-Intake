@@ -11,7 +11,7 @@ import {
   timelineEnum,
   sourceEnum,
   statusEnum,
-} from "@/db/schema";
+} from "@/lib/db/schema";
 import { z } from "zod";
 import { TagInput } from "@/components/ui/tag-input";
 import {

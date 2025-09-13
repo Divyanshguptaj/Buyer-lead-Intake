@@ -7,7 +7,7 @@ import {
   propertyTypeEnum,
   statusEnum,
   timelineEnum,
-} from '@/db/schema';
+} from '@/lib/db/schema';
 
 interface FilterBarProps {
   filters: {

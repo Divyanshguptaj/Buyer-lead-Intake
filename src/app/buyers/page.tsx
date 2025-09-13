@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { BuyerTable } from '@/components/buyer-table';
 import { FilterBar } from '@/components/filter-bar';
 import Link from 'next/link';
-import { BuyerType } from '@/db';
+import { BuyerType } from '@/lib/db';
 import { Download, Upload, Plus, Users, AlertCircle, RefreshCw } from 'lucide-react';
 
 // Proper TypeScript interfaces

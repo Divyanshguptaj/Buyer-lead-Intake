@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { buyers } from '@/db/schema';
+import { db } from '@/lib/db';
+import { buyers } from '@/lib/db/schema';
 import { getSession } from '@/lib/auth';
 import { createCSV } from '@/lib/csv';
 import { eq, and, desc, asc, ilike, or } from 'drizzle-orm';

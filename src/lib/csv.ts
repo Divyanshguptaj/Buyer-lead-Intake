@@ -1,6 +1,6 @@
 import { stringify } from 'csv-stringify/sync';
 import { z } from 'zod';
-import { csvImportSchema } from '@/db/schema';
+import { csvImportSchema } from '@/lib/db/schema';
 
 export async function parseCSV(file: File) {
   const content = await file.text();

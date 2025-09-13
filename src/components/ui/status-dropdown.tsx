@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { statusEnum } from '@/db/schema';
+import { statusEnum } from '@/lib/db/schema';
 
 interface StatusDropdownProps {
   status: string;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import { buyerSchema } from '../src/db/schema';
+import { buyerSchema } from '../src/lib/db/schema';
 
 describe('Buyer Validation', () => {
   // Test budget validation logic

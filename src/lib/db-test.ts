@@ -1,5 +1,5 @@
-import { db } from '@/db';
-import { buyers } from '@/db/schema';
+import { db } from '@/lib/db';
+import { buyers } from '@/lib/db/schema';
 import { count } from 'drizzle-orm';
 
 async function testDbConnection() {
