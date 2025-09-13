@@ -1,5 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthOptions } from "next-auth";
+import { getServerSession } from "next-auth";
+import { getSession } from "next-auth/react";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -37,3 +39,10 @@ export const authOptions: NextAuthOptions = {
   },
   debug: process.env.NODE_ENV === "development",
 };
+
+export const getCurrentUser = async () => {
+  const session = await getServerSession(authOptions);
+  return session?.user;
+};
+export { getSession };
+
