@@ -2,21 +2,16 @@
 
 import { NextResponse } from "next/server";
 
-interface RouteContext {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(request: Request, context: RouteContext) {
+export async function GET(
+  request: Request,
+  context: { params: { id: string } }
+) {
   try {
     const { id } = context.params;
 
-    // TODO: fetch buyer from your database using id
-    // Example:
+    // Example: fetch buyer from DB here
     // const buyer = await db.buyer.findUnique({ where: { id } });
     // if (!buyer) return new NextResponse("Not Found", { status: 404 });
-    // return NextResponse.json(buyer);
 
     return NextResponse.json({ buyerId: id });
   } catch (error) {

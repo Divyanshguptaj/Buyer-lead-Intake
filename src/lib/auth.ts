@@ -1,5 +1,5 @@
 // src/lib/auth.ts
-
+import { getSession, getCurrentUser } from "@/lib/session";
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthOptions } from "next-auth";
 

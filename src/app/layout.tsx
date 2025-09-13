@@ -3,6 +3,7 @@ import "./globals.css";
 import { NavBar } from "@/components/nav-bar";
 import { ClientErrorBoundary } from "@/components/ui/client-error-boundary";
 import { AuthProvider } from "@/components/auth-provider";
+import { getSession, getCurrentUser } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: "Buyer Lead Intake",

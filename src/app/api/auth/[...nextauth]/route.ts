@@ -1,5 +1,5 @@
 // src/app/api/auth/[...nextauth]/route.ts
-
+import { getSession, getCurrentUser } from "@/lib/session";
 import NextAuth from "next-auth";
 import { authOptions } from "@/lib/auth";
 
